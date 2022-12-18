@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Магазин</title>
+</head>
+<body>
+<nav>
+    <a href="{% url 'index' %}">Главная</a>
+    <a href="{% url 'about' %}">О нас</a>
+    <a href="{% url 'contacts' %}">Контакты</a>
+    <a href="{% url 'products' %}">Продукты</a>
+    {% if user.is_authenticated %}
+        <p>Пользователь: {{ user }}</p>
+    {% else %}
+        <a href="{% url 'login' %}">Вход</a>
+    {% endif %}
+</nav>
+{% block content %}
+{% endblock %}
+</body>
+</html>

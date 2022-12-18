@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Товары</h1>
+    {% if products_list %}
+        {% for product in products_list %}
+            {{ product.name }}
+            {{ product.disc }}
+            <img src="{{ product.image.url }}">
+        {% endfor %}
+    {% else %}
+        <p>Товаров нет</p>
+    {% endif %}
+{% endblock %}
